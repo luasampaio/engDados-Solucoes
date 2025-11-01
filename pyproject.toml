@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "engDados-solucoes"
+version = "0.1.0"
+
+[tool.setuptools]
+package-dir = {"" = "notebooks"}  # <- se o src ficar dentro de notebooks
+
+[tool.setuptools.packages.find]
+where = ["src"]
