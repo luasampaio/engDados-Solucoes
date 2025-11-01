@@ -127,25 +127,6 @@ schema = pa.DataFrameSchema({
 validado = schema.validate(df, lazy=True)
 ```
 
-## 🧠 NLP com **spaCy** (campo `descricao`, quando houver)
-
-### Tokenização/NER/Dependências
-
-```python
-import spacy
-from spacy import displacy
-
-nlp = spacy.load('pt_core_news_md')
-texto = ' '.join(df.get('descricao', pd.Series(dtype=str)).astype(str).head(30))
-doc = nlp(texto)
-
-# Render para HTML (fora do Jupyter)
-html = displacy.render(doc, style='ent', jupyter=False)
-open('ner_preview.html', 'w', encoding='utf-8').write(html)
-```
-
-> Se estiver fora do Jupyter, prefira salvar HTML (`jupyter=False`) ou usar `displacy.serve`. Para `style='dep'`, garanta que o `parser` existe no pipeline (modelos `md`/`lg`).
-
 ## 🖥️ App Streamlit (opcional)
 
 Arquivo mínimo com **spaCy Streamlit** para visualizar `ner/textcat`:
@@ -185,4 +166,4 @@ MIT. Sinta-se à vontade para adaptar e reutilizar.
 
 ---
 
-**Autor(a):** Luciana Sampaio – Engenharia de Dados
+**Autora** Luciana Sampaio – Engenharia de Dados
