@@ -64,7 +64,7 @@ def load(d, symbol, target_table):
         cur.execute("BEGIN;")
         cur.execute(f"DELETE FROM {target_table} WHERE date='{date}'")
         sql = f"""INSERT INTO {target_table} (date, open, close, high, low, volume, symbol) VALUES (
-          '{date}', {d['Open'][0]}, {d['Close'][0]}, {d['High'][0]}, {d['Low'][0]}, {d['Volume'][0]}, '{symbol}[0]')"""
+        '{date}', {d['Open'][0]}, {d['Close'][0]}, {d['High'][0]}, {d['Low'][0]}, {d['Volume'][0]}, '{symbol}[0]')"""
         print(sql)
         cur.execute(sql)
         cur.execute("COMMIT;")
